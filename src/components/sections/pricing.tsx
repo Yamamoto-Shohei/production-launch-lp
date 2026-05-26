@@ -85,7 +85,7 @@ const plans = [
 export function PricingSection() {
   return (
     <section id="pricing" className="py-24 bg-slate-900">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-4">
           対応範囲・価格の目安
         </h2>
@@ -100,7 +100,7 @@ export function PricingSection() {
               className={cn(
                 "relative bg-slate-950/50 border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-700",
                 plan.popular &&
-                  "border-blue-500/50 shadow-lg shadow-blue-500/10 scale-[1.02] md:scale-105"
+                  "border-blue-500/50 shadow-lg shadow-blue-500/10 scale-[1.02]"
               )}
             >
               {plan.popular && (
