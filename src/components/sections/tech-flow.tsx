@@ -3,30 +3,30 @@ import { Code2, Database, Cloud, TestTube } from "lucide-react";
 const techSteps = [
   {
     icon: Code2,
-    title: "ソースコード分析",
+    title: "AIコードの読み解き・補完",
     description:
-      "共有されたコードを徹底的に読み込み、システム構造や依存関係、潜在的なボトルネック・セキュリティリスクを洗い出します。",
+      "AIが生成したコードの構造・依存関係を把握し、本番稼働に必要な修正箇所やセキュリティリスクを特定します。",
     color: "blue",
   },
   {
     icon: Database,
-    title: "アーキテクチャ・DB設計",
+    title: "バックエンド・DB設計",
     description:
-      "想定トラフィックや将来の拡張性を踏まえ、最適なクラウド構成とデータベースモデルを設計し、スケーラビリティと堅牢性を確保します。",
+      "会員登録やデータ保持が必要なアプリには、DB設計・API実装・認証基盤をまるっと構築。LPなどデータ不要なものはこのステップをスキップします。",
     color: "cyan",
   },
   {
     icon: Cloud,
     title: "インフラ構築・デプロイ",
     description:
-      "IaC（Terraform/CDKなど）を用いて本番環境を構築し、CI/CDパイプラインを整備したうえで、安全なロールアウト戦略を設計・実施します。",
+      "プロジェクトに最適なクラウド環境を選定・構築し、ドメイン接続・SSL設定・CI/CDパイプライン整備まで一貫して対応します。",
     color: "emerald",
   },
   {
     icon: TestTube,
-    title: "動作検証・最終調整",
+    title: "動作検証・公開",
     description:
-      "本番相当環境での動作検証、監視・ログ設定、リリース手順の整備を行い、必要な最終調整を反映します。",
+      "本番環境での動作確認、監視・ログ設定を整え、あなたのプロダクトを世に出します。公開後の運用ポイントもドキュメントで共有します。",
     color: "violet",
   },
 ];
@@ -62,7 +62,7 @@ export function TechFlowSection() {
           制作の流れ（技術的な進め方）
         </h2>
         <p className="text-slate-400 text-center mb-16 text-lg">
-          プロの技術力で、確実に本番環境へ
+          AIが作ったコードの「足りない部分」をプロが補完します
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

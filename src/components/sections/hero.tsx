@@ -24,23 +24,23 @@ export function HeroSection() {
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-8">
           <Rocket className="w-4 h-4" />
-          既存コードの&ldquo;本番化&rdquo;に特化
+          Vibeコーディング → 本番リリース
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6">
-          あなたのアイデアを
+          AIで作ったプロダクト、
           <br />
           <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-            最速で本番稼働する
+            世に出すところまで
           </span>
           <br />
-          プロダクトに変えます
+          一緒にやります
         </h1>
 
         <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          プロトタイプから本番環境への壁を越える、
+          Claude CodeやCursorで形にしたアイデア、
           <br className="hidden sm:block" />
-          確かな技術力でお手伝いします。
+          本番デプロイして反響を見るところまでサポートします。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

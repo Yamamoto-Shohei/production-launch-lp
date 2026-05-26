@@ -14,15 +14,31 @@ import { Check, Clock } from "lucide-react";
 
 const plans = [
   {
-    title: "静的サイト / LPデプロイ",
+    title: "アイデア壁打ち・サービス設計",
+    price: "¥50,000",
+    priceNote: "〜",
+    timeline: "1〜2週間",
+    description:
+      "途中までアイデアを考えたけど具体的なところまで詰められていない方向け。サービスの具体化や技術選定の壁打ちから伴走します。",
+    features: [
+      "サービスコンセプトの壁打ち",
+      "技術構成・実現方法のアドバイス",
+      "必要な機能の洗い出し",
+      "開発ロードマップ作成",
+      "本番化プランへのスムーズな接続",
+    ],
+    popular: false,
+  },
+  {
+    title: "LP・静的サイトデプロイ",
     price: "¥100,000",
     priceNote: "〜",
     timeline: "最短7日",
     description:
-      "LPやポートフォリオサイトをAWS S3＋CloudFrontやVercelへデプロイ。独自ドメイン・SSL設定まで一貫対応。",
+      "データ保持を伴わないLPやポートフォリオを、クラウドにデプロイしてドメインを繋げて公開完了。",
     features: [
-      "静的サイト・LPのデプロイ",
-      "独自ドメイン設定",
+      "クラウドへのデプロイ",
+      "独自ドメイン接続",
       "SSL証明書設定",
       "基本的なCI/CD構築",
       "構成ドキュメント納品",
@@ -30,15 +46,15 @@ const plans = [
     popular: false,
   },
   {
-    title: "小規模Webアプリ本番化",
+    title: "Webアプリ本番化",
     price: "¥500,000",
     priceNote: "〜",
     timeline: "約30日〜",
     description:
-      "CRUD主体の小〜中規模Webアプリを対象に、DB設計からCI/CD構築、本番デプロイまでサポート。",
+      "会員登録やDB連携が必要なアプリケーション向け。バックエンド・インフラ構成をまるっと作成して世に出します。",
     features: [
-      "DB設計・最適化",
-      "API実装・接続",
+      "バックエンド・API実装",
+      "DB設計・認証基盤構築",
       "CI/CDパイプライン構築",
       "本番環境デプロイ",
       "ログ設計・エラーハンドリング",
@@ -52,11 +68,11 @@ const plans = [
     priceNote: "〜",
     timeline: "約60〜90日",
     description:
-      "大規模Webアプリを対象に、アーキテクチャ設計からマルチ環境構成、本番デプロイまでトータル支援。",
+      "業務アプリケーションなど大規模なプロダクト向け。アーキテクチャ設計からマルチ環境構成まで、トータルで本番化を支援します。",
     features: [
       "アーキテクチャ設計",
       "DB・API・フロントエンド接続",
-      "IaC（Terraform/CDK）構築",
+      "インフラ構築（IaC対応）",
       "マルチ環境構成",
       "CI/CD・ステージング環境",
       "監視・ログ・アラート設定",
@@ -69,22 +85,22 @@ const plans = [
 export function PricingSection() {
   return (
     <section id="pricing" className="py-24 bg-slate-900">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-4">
           対応範囲・価格の目安
         </h2>
         <p className="text-slate-400 text-center mb-16 text-lg">
-          プロジェクト規模や既存コードの状態に応じて柔軟に調整いたします
+          プロジェクトの規模や完成度に応じて柔軟に調整いたします
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {plans.map((plan, i) => (
             <Card
               key={i}
               className={cn(
                 "relative bg-slate-950/50 border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-700",
                 plan.popular &&
-                  "border-blue-500/50 shadow-lg shadow-blue-500/10 scale-[1.02] md:scale-105"
+                  "border-blue-500/50 shadow-lg shadow-blue-500/10 scale-[1.02]"
               )}
             >
               {plan.popular && (
@@ -150,6 +166,9 @@ export function PricingSection() {
 
         <p className="text-center text-slate-500 text-sm mt-8">
           ※ 表示価格は税別です。プロジェクトの内容に応じて個別にお見積もりいたします。
+        </p>
+        <p className="text-center text-slate-400 text-sm mt-3">
+          📌 公開後の<span className="text-blue-400 font-medium">保守・運用サポート</span>はオプションプランにて応相談で承ります。
         </p>
       </div>
     </section>

@@ -1,26 +1,26 @@
 import {
   AlertTriangle,
   ServerCrash,
-  Wrench,
-  TrendingDown,
+  Database,
+  Lightbulb,
 } from "lucide-react";
 
 const painPoints = [
   {
     icon: AlertTriangle,
-    text: "せっかく作ったプロダクトが公開できない",
+    text: "Claude CodeやCursorで作ったけど、ここからどうすれば？",
   },
   {
     icon: ServerCrash,
-    text: "本番環境へのデプロイが複雑で進まない",
+    text: "ローカルでは動くけど、公開するにはセキュリティやインフラが足りない",
   },
   {
-    icon: Wrench,
-    text: "既存システムの保守運用を効率化したい",
+    icon: Database,
+    text: "会員登録やDB連携が必要だけど、バックエンドの作り方がわからない",
   },
   {
-    icon: TrendingDown,
-    text: "技術負債を解消し、スケーラブルな基盤を構築したい",
+    icon: Lightbulb,
+    text: "アイデアはあるけど、具体的な設計まで落とし込めていない",
   },
 ];
 
@@ -32,7 +32,7 @@ export function PainPointsSection() {
           こんなお悩みはありませんか？
         </h2>
         <p className="text-slate-400 text-center mb-16 text-lg">
-          多くのスタートアップ・個人開発者が直面する課題を解決します
+          Vibeコーディングで形にしたその先、一歩が踏み出せない方へ
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -53,11 +53,11 @@ export function PainPointsSection() {
 
         <div className="mt-16 text-center">
           <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-            これらのお悩みをお持ちの方へ、
+            AIで作ったプロトタイプを、
             <span className="text-blue-400 font-bold">
-              既存コードの&ldquo;本番化&rdquo;に特化
+              本番デプロイして世に出すところまで
             </span>
-            してご支援します。
+            一貫してサポートします。
           </p>
         </div>
       </div>

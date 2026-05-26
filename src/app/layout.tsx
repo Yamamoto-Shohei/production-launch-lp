@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "本番化支援サービス | あなたのアイデアを最速でプロダクトに",
+  title: "Vibeコーディング本番化サービス | AIで作ったプロダクトを世に出す",
   description:
-    "既存コードの本番化に特化。プロトタイプから本番環境へのデプロイを支援します。",
+    "Claude CodeやCursorで作ったプロトタイプを、本番デプロイして世に出すところまで一貫サポート。LP・Webアプリ・業務システムまで対応。",
   openGraph: {
-    title: "本番化支援サービス | あなたのアイデアを最速でプロダクトに",
+    title: "Vibeコーディング本番化サービス | AIで作ったプロダクトを世に出す",
     description:
-      "既存コードの本番化に特化。プロトタイプから本番環境へのデプロイを支援します。",
+      "Claude CodeやCursorで作ったプロトタイプを、本番デプロイして世に出すところまで一貫サポート。LP・Webアプリ・業務システムまで対応。",
     type: "website",
   },
 };

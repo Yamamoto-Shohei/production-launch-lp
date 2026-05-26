@@ -1,29 +1,29 @@
-import { Shield, Zap, BookOpen, HeartHandshake } from "lucide-react";
+import { Code2, Puzzle, MessageCircle, HeartHandshake } from "lucide-react";
 
 const strengths = [
   {
-    icon: Zap,
-    title: "フルスタック対応力",
+    icon: Code2,
+    title: "AIが書いたコードを読み解ける",
     description:
-      "フロントエンドからインフラまで幅広い技術領域をカバーし、最適なソリューションを提案します。",
+      "Claude CodeやCursorが生成したコードの構造を正確に把握し、本番品質に引き上げます。",
   },
   {
-    icon: Shield,
-    title: "本番化に特化した専門性",
+    icon: Puzzle,
+    title: "足りない部分だけをプロが補完",
     description:
-      "「作ったけど公開できない」という課題に正面から向き合い、確実に本番環境へ導きます。",
+      "AIが作った部分はそのまま活かし、デプロイ・インフラ・バックエンドなど不足する部分だけを構築します。",
   },
   {
-    icon: BookOpen,
-    title: "難しい要件定義書は不要",
+    icon: MessageCircle,
+    title: "アイデア段階からの壁打ち伴走",
     description:
-      "ソースコードと実現したいイメージを共有いただければ、最短ルートでのリリースをご提案します。",
+      "具体化しきれていないアイデアでも大丈夫。技術的な実現方法やサービス設計から一緒に考えます。",
   },
   {
     icon: HeartHandshake,
-    title: "運用を見据えた仕上げ",
+    title: "運用を見据えた本番品質",
     description:
-      "ただデプロイするだけでなく、監視・ログ・ドキュメントなど運用を意識した本番品質に仕上げます。",
+      "ただデプロイするだけでなく、監視・ログ・ドキュメントなど運用を意識した品質で仕上げます。",
   },
 ];
 
@@ -35,7 +35,7 @@ export function StrengthsSection() {
           サービスの強み
         </h2>
         <p className="text-slate-400 text-center mb-16 text-lg max-w-3xl mx-auto">
-          お客様のアイデアを「動いて、公開され、運用できるプロダクト」へと昇華させます
+          Vibeコーディングで作ったプロダクトを「世に出せる状態」に仕上げます
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

@@ -4,6 +4,7 @@ import { FlowSection } from "@/components/sections/flow";
 import { TechFlowSection } from "@/components/sections/tech-flow";
 import { PricingSection } from "@/components/sections/pricing";
 import { StrengthsSection } from "@/components/sections/strengths";
+import { ProfileSection } from "@/components/sections/profile";
 import { CtaSection } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <TechFlowSection />
       <PricingSection />
       <StrengthsSection />
+      <ProfileSection />
       <CtaSection />
       <Footer />
     </>
