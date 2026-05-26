@@ -4,13 +4,11 @@ import { useState } from "react";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 
 // --- Google Forms 設定 ---
-// Google Form の送信先 URL（formResponse）と各フィールドの entry ID を設定してください。
-// 例: https://docs.google.com/forms/d/e/XXXX/formResponse
 const GOOGLE_FORM_ACTION_URL =
-  "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
-const ENTRY_NAME = "entry.YOUR_NAME_ENTRY_ID";
-const ENTRY_EMAIL = "entry.YOUR_EMAIL_ENTRY_ID";
-const ENTRY_MESSAGE = "entry.YOUR_MESSAGE_ENTRY_ID";
+  "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeJYstZ3AGhJIh3-2Y9pkCJUpIX5efNzsSWRHu2_6okHZ-dYQ/formResponse";
+const ENTRY_NAME = "entry.572638205";
+const ENTRY_EMAIL = "entry.1573468461";
+const ENTRY_MESSAGE = "entry.1522075248";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
