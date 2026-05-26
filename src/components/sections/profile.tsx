@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Award, BookOpen, Briefcase, Code2 } from "lucide-react";
 
 const highlights = [
@@ -32,14 +33,25 @@ export function ProfileSection() {
 
         <div className="rounded-2xl border border-slate-800 bg-slate-950/50 p-8 sm:p-10">
           {/* Intro */}
-          <div className="mb-8">
-            <h3 className="text-xl font-bold text-white mb-1">山本 祥平</h3>
-            <p className="text-sm text-blue-400 mb-4">フルスタックエンジニア</p>
-            <p className="text-slate-300 leading-relaxed">
-              SIer時代の金融系大規模開発から、食べログでのWebサービス開発・マネジメント、
-              現在はスタートアップで開発本部長として事業運営・システム開発全般を担っています。
-              副業では自分自身でもプロダクトを作り、世に出す経験を積んでいます。
-            </p>
+          <div className="mb-8 flex flex-col sm:flex-row gap-6 items-start">
+            <Image
+              src="/profile.jpg"
+              alt="山本 祥平"
+              width={96}
+              height={96}
+              className="rounded-2xl flex-shrink-0"
+            />
+            <div>
+              <h3 className="text-xl font-bold text-white mb-1">山本 祥平</h3>
+              <p className="text-sm text-blue-400 mb-4">
+                フルスタックエンジニア
+              </p>
+              <p className="text-slate-300 leading-relaxed">
+                SIer時代の金融系大規模開発から、食べログでのWebサービス開発・マネジメント、
+                現在はスタートアップで開発本部長として事業運営・システム開発全般を担っています。
+                副業では自分自身でもプロダクトを作り、世に出す経験を積んでいます。
+              </p>
+            </div>
           </div>
 
           {/* Highlights */}
