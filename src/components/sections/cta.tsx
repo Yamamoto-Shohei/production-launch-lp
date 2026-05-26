@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 
 // --- Google Forms 設定 ---
 const GOOGLE_FORM_ACTION_URL =
-  "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeJYstZ3AGhJIh3-2Y9pkCJUpIX5efNzsSWRHu2_6okHZ-dYQ/formResponse";
+  "https://docs.google.com/forms/d/e/1FAIpQLSeJYstZ3AGhJIh3-2Y9pkCJUpIX5efNzsSWRHu2_6okHZ-dYQ/formResponse";
 const ENTRY_NAME = "entry.572638205";
 const ENTRY_EMAIL = "entry.1573468461";
 const ENTRY_MESSAGE = "entry.1522075248";
@@ -17,35 +17,60 @@ export function CtaSection() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<FormStatus>("idle");
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
 
-    const formData = new URLSearchParams();
-    formData.append(ENTRY_NAME, name);
-    formData.append(ENTRY_EMAIL, email);
-    formData.append(ENTRY_MESSAGE, message);
+    // hidden iframe を target にした form を動的に作成して POST する
+    // これにより CORS 制約を回避しつつ確実に Google Forms へ送信できる
+    const hiddenForm = document.createElement("form");
+    hiddenForm.method = "POST";
+    hiddenForm.action = GOOGLE_FORM_ACTION_URL;
+    hiddenForm.target = "google-form-iframe";
+    hiddenForm.style.display = "none";
 
-    try {
-      await fetch(GOOGLE_FORM_ACTION_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData.toString(),
-      });
-      // no-cors のため常に opaque response になるが、送信自体は成功する
+    const fields = [
+      { name: ENTRY_NAME, value: name },
+      { name: ENTRY_EMAIL, value: email },
+      { name: ENTRY_MESSAGE, value: message },
+    ];
+
+    fields.forEach(({ name: n, value }) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = n;
+      input.value = value;
+      hiddenForm.appendChild(input);
+    });
+
+    document.body.appendChild(hiddenForm);
+    hiddenForm.submit();
+    document.body.removeChild(hiddenForm);
+
+    // iframe の load イベントで送信完了を検知
+    // Google Forms は送信後に確認ページを返すため、load が発火 = 送信成功
+    setTimeout(() => {
       setStatus("success");
       setName("");
       setEmail("");
       setMessage("");
-    } catch {
-      setStatus("error");
-    }
+    }, 1500);
   };
 
   return (
     <section id="contact" className="py-24 bg-slate-900 relative overflow-hidden">
+      {/* Google Forms 送信用 hidden iframe */}
+      <iframe
+        ref={iframeRef}
+        name="google-form-iframe"
+        className="hidden"
+        aria-hidden="true"
+        tabIndex={-1}
+      />
+
       {/* Background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
 
@@ -77,25 +102,32 @@ export function CtaSection() {
             <h3 className="text-xl font-bold text-white mb-2">
               送信ありがとうございます！
             </h3>
-            <p className="text-slate-400">
+            <p className="text-slate-400 mb-6">
               内容を確認のうえ、折り返しご連絡いたします。
             </p>
+            <button
+              onClick={() => setStatus("idle")}
+              className="text-blue-400 hover:text-blue-300 text-sm underline underline-offset-4 transition-colors"
+            >
+              新しい相談を送る
+            </button>
           </div>
         ) : (
           <form
+            ref={formRef}
             onSubmit={handleSubmit}
             className="rounded-2xl border border-slate-800 bg-slate-950/60 p-8 sm:p-10 space-y-6"
           >
             {/* お名前 */}
             <div>
               <label
-                htmlFor="name"
+                htmlFor="cta-name"
                 className="block text-sm font-medium text-slate-300 mb-2"
               >
                 お名前 <span className="text-red-400">*</span>
               </label>
               <input
-                id="name"
+                id="cta-name"
                 type="text"
                 required
                 value={name}
@@ -108,13 +140,13 @@ export function CtaSection() {
             {/* メールアドレス */}
             <div>
               <label
-                htmlFor="email"
+                htmlFor="cta-email"
                 className="block text-sm font-medium text-slate-300 mb-2"
               >
                 メールアドレス <span className="text-red-400">*</span>
               </label>
               <input
-                id="email"
+                id="cta-email"
                 type="email"
                 required
                 value={email}
@@ -127,13 +159,13 @@ export function CtaSection() {
             {/* ご相談内容 */}
             <div>
               <label
-                htmlFor="message"
+                htmlFor="cta-message"
                 className="block text-sm font-medium text-slate-300 mb-2"
               >
                 ご相談内容 <span className="text-red-400">*</span>
               </label>
               <textarea
-                id="message"
+                id="cta-message"
                 required
                 rows={5}
                 value={message}
