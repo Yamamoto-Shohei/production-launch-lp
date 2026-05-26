@@ -38,23 +38,25 @@ export function HeroSection() {
         </h1>
 
         <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          16年のエンジニアリング経験とDevOpsの専門知識で、
+          プロトタイプから本番環境への壁を越える、
           <br className="hidden sm:block" />
-          プロトタイプから本番環境への壁を越えるお手伝いをします。
+          確かな技術力でお手伝いします。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="https://www.lancers.jp/menu/detail/610299"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className={cn(
               buttonVariants({ size: "lg" }),
-              "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-lg px-8 py-6 rounded-xl shadow-lg shadow-blue-500/25 transition-all hover:shadow-blue-500/40 hover:scale-[1.02] no-underline"
+              "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-lg px-8 py-6 rounded-xl shadow-lg shadow-blue-500/25 transition-all hover:shadow-blue-500/40 hover:scale-[1.02]"
             )}
           >
             無料で相談する
-          </a>
+          </button>
           <button
             onClick={() =>
               document

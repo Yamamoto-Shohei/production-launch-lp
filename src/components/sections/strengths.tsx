@@ -3,9 +3,9 @@ import { Shield, Zap, BookOpen, HeartHandshake } from "lucide-react";
 const strengths = [
   {
     icon: Zap,
-    title: "16年のエンジニアリング経験",
+    title: "フルスタック対応力",
     description:
-      "長年にわたるフルスタック開発とDevOpsの専門知識を活かし、最適なソリューションを提案します。",
+      "フロントエンドからインフラまで幅広い技術領域をカバーし、最適なソリューションを提案します。",
   },
   {
     icon: Shield,

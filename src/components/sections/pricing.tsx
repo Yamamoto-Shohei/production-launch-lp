@@ -1,3 +1,5 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -125,20 +127,22 @@ export function PricingSection() {
                   ))}
                 </ul>
 
-                <a
-                  href="https://www.lancers.jp/menu/detail/610299"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className={cn(
                     buttonVariants(),
-                    "w-full rounded-xl py-5 no-underline",
+                    "w-full rounded-xl py-5",
                     plan.popular
                       ? "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white"
                       : "bg-slate-800 hover:bg-slate-700 text-slate-200"
                   )}
                 >
                   相談する
-                </a>
+                </button>
               </CardContent>
             </Card>
           ))}
