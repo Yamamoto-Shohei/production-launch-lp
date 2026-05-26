@@ -35,7 +35,7 @@ export function ProfileSection() {
           {/* Intro */}
           <div className="mb-8 flex flex-col sm:flex-row gap-6 items-start">
             <Image
-              src="/profile.png"
+              src="/profile.jpg"
               alt="山本 祥平"
               width={96}
               height={96}
