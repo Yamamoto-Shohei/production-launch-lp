@@ -7,7 +7,7 @@ const highlights = [
   },
   {
     icon: Code2,
-    text: "副業でLINE活用SaaSや人材派遣業務アプリを個人開発・運用中",
+    text: "副業でLINE活用SaaSや人材派遣業務アプリの開発をリード",
   },
   {
     icon: Award,
