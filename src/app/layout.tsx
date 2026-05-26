@@ -1,25 +1,38 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = "https://production-launch.rcat.app";
 const siteTitle =
   "Vibeコーディング本番化サービス | AIで作ったプロダクトを世に出す";
 const siteDescription =
   "Claude CodeやCursorで作ったプロトタイプを、本番デプロイして世に出すところまで一貫サポート。LP・Webアプリ・業務システムまで対応。";
+const ogImage = `${siteUrl}/opengraph-image.png`;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
   openGraph: {
     title: siteTitle,
     description: siteDescription,
+    url: siteUrl,
     type: "website",
     locale: "ja_JP",
     siteName: "Vibeコーディング本番化サービス",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: [ogImage],
   },
 };
 
